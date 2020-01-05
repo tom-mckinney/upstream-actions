@@ -1,0 +1,22 @@
+name: Dotnet Test
+author: Tom McKinney, UpstreamCode
+description: Simple action for testing a .NET Core application
+branding:
+  icon: 'code'
+  color: 'blue'
+
+inputs:
+  project-path:
+    description: 'Path to project or solution'
+    required: false
+    default: './src'
+
+outputs:
+  result:
+    description: 'Result of the tests'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.project-path }}
