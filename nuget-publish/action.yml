@@ -16,7 +16,5 @@ outputs:
     description: 'Result of the tests'
 
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-    - ${{ inputs.project-path }}
+  using: 'node12'
+  main: 'dist/index.js'
