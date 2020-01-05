@@ -972,14 +972,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(__webpack_require__(470));
 const exec = __importStar(__webpack_require__(986));
-// import {promisify} from 'util'
-// import {exec} from 'child_process'
+const io = __importStar(__webpack_require__(1));
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const projectPath = core.getInput('project-path');
-            // await promisify(exec)(`dotnet test ${projectPath}`)
-            yield exec.exec('dotnet', ['test', projectPath]);
+            const dotnetPath = yield io.which('dotnet');
+            yield exec.exec(dotnetPath, ['test', projectPath]);
         }
         catch (error) {
             core.setFailed(error.message);
