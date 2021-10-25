@@ -1,15 +1,14 @@
-name: 'NuGet Publish'
+name: '.NET Core Publish'
 author: 'Tom McKinney, UpstreamCode'
-description: 'Simple action for publishing NuGet packages'
+description: 'Simple action for building .NET Core packages and pushing them to NuGet'
 branding:
   icon: 'code'
   color: 'blue'
 
 inputs:
   project-path:
-    description: 'Path to project or solution'
-    required: false
-    default: './src'
+    description: 'Path to project'
+    required: true
 
 outputs:
   result:

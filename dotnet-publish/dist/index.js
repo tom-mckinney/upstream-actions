@@ -976,6 +976,8 @@ const io = __importStar(__webpack_require__(1));
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
+            core.info(core.getState('github.ref'));
+            core.info(core.getInput('github.ref'));
             const projectPath = core.getInput('project-path');
             const dotnetPath = yield io.which('dotnet');
             yield exec.exec(dotnetPath, ['test', projectPath]);
